@@ -3,14 +3,14 @@
 
 <template>
   <header>
-    <div class="container">
-      <h1 class="text-center text-light">Trips Diary</h1>
-      <div class="calendar bg-light p-3 m-auto">
+    <div class="container border-rounded">
+      <h1 class="text-center text-light my-5">Trips Diary</h1>
+      <div class="calendar bg-light p-3 m-auto rounded-4">
         <header>
           <h3></h3>
           <nav>
-            <button id="previous"></button>
-            <button id="next"></button>
+            <button id="previous" class="btn btn-primary fs-5 text-black m-2 "><</button>
+            <button id="next" class="btn btn-primary fs-5 text-black m-2">></button>
           </nav>
         </header>
         <section class="bg-light">
@@ -25,7 +25,6 @@
           </ul>
           <ul class="dates"></ul>
         </section>
-
       </div>
     </div>
   </header>
@@ -38,8 +37,17 @@
 </template>
 
 <script>
+
 </script>
 
 <style scoped>
+.calendar ul li{
+  width: calc(100% / 7);
+  
+}
+
+#previous:hover, #next:hover{
+  background-color: white;
+} 
 
 </style>
