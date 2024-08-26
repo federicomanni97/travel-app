@@ -25,7 +25,9 @@
             <li class="">Friday</li>
             <li class="">Saturday</li>
           </ul>
-          <ul class="dates list-unstyled fs-2" id="dates" ref="dates"></ul>
+          <ul class="dates list-unstyled fs-2" id="dates" ref="dates">
+            <li class="p-3" @click="openModal(i)">{{ i }}</li>
+          </ul>
         </section>
       </div>
     </div>
@@ -40,6 +42,7 @@
 
 <script>
 // primo
+import Modal from './components/icons/ModalComponent.vue'
 export default {
   data() {
     return {
