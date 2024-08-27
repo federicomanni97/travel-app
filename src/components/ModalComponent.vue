@@ -2,31 +2,23 @@
   <div class="modal">
       <div class="modal-inner bg-dark rounded-5 m-5 opacity-75 text-light">
         <form>
+          <h1>Travel Notes:</h1>
           <div class="form-row">
             <div class="form-group">
-              <label for="inputEmail4">Destination Locality</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              <label for="inputEmail4">Destination Locality:</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Your Destination">
             </div>
           </div>
           <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <label for="inputAddress">Dates:</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Dates">
           </div>
           <div class="form-group">
-            <label for="inputAddress">Dettagli Viaggio:</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <label for="inputAddress">Trip Details:</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Trip Details">
           </div>
-          <div class="form-group">
-            <div class="form-check my-3">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label text-danger" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary my-2">Sign in</button>
         </form>
-      <button class="modal-close btn btn-primary my-2">Close Modal</button>
+      <button class="modal-close btn btn-primary my-2" @click="toggleModal()" >Close Modal</button>
     </div>
   </div>
 </template>
@@ -35,12 +27,13 @@
 
 export default {
   name: 'ModalComponent',
-  setup () {
-    
-
+  props: ['toggleModal', 'modalTriggers', ],
+  data() {
     return {
 
     }
+  },
+  methods: {
 
   }
 }

@@ -28,13 +28,11 @@
         </section>
       </div>
       <div>
-        <button @click="toggleModal('buttonTrigger')">Open ModalComponent</button>
-        <ModalComponent v-if="modalTriggers.buttonTrigger">
+        <h1 class="text-light" @click="() => toggleModal('buttonTrigger')">my modal component</h1>
+        <!-- <button @click="ToggleModal('buttonTrigger')">Open ModalComponent</button> -->
+        <ModalComponent v-if="modalTriggers.buttonTrigger"
+        :toggleModal="() => toggleModal('buttonTrigger')">
           <h2> My ModalComponent</h2>
-        </ModalComponent>
-        <ModalComponent v-if="modalTriggers.timedTrigger">
-          <h2> My ModalComponent</h2>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque recusandae nam repellendus enim culpa tempore ipsam labore cumque, corrupti cupiditate.</p>
         </ModalComponent>
       </div>
     </div>
@@ -58,17 +56,18 @@ export default {
       buttonTrigger: false,
       timedTrigger: false
     });
+
     const toggleModal = (trigger) => {
       modalTriggers.value[trigger] = !modalTriggers.value[trigger];
-    };
+    }
 
     return {
-      toggleModal,
       ModalComponent,
       modalTriggers,
+      toggleModal,
       month: new Date().getMonth(),
       year: new Date().getFullYear(),
-      showModal: true,
+      showModal: false,
       monthNames: [
         'January',
         'February',
@@ -132,7 +131,10 @@ export default {
       }
 
       this.$refs.dates.innerHTML = datesHtml;
-    }
+    },
+    toggleModal(trigger) {
+      this.modalTriggers[trigger] = !this.modalTriggers[trigger];
+    },    
   },
 
   mounted() {
