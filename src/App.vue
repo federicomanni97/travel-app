@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <header>
     <div class="container border-rounded">
@@ -30,6 +27,16 @@
           </ul>
         </section>
       </div>
+      <div>
+        <button @click="toggleModal('buttonTrigger')">Open ModalComponent</button>
+        <ModalComponent v-if="modalTriggers.buttonTrigger">
+          <h2> My ModalComponent</h2>
+        </ModalComponent>
+        <ModalComponent v-if="modalTriggers.timedTrigger">
+          <h2> My ModalComponent</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque recusandae nam repellendus enim culpa tempore ipsam labore cumque, corrupti cupiditate.</p>
+        </ModalComponent>
+      </div>
     </div>
   </header>
 
@@ -42,12 +49,26 @@
 
 <script>
 // primo
-import Modal from './components/icons/ModalComponent.vue'
+import { ref } from 'vue';
+import ModalComponent from './components/ModalComponent.vue';
+// import Modal from './components/ModalComponent.vue'
 export default {
   data() {
+    const modalTriggers = ref({
+      buttonTrigger: false,
+      timedTrigger: false
+    });
+    const toggleModal = (trigger) => {
+      modalTriggers.value[trigger] = !modalTriggers.value[trigger];
+    };
+
     return {
+      toggleModal,
+      ModalComponent,
+      modalTriggers,
       month: new Date().getMonth(),
       year: new Date().getFullYear(),
+      showModal: true,
       monthNames: [
         'January',
         'February',
@@ -61,8 +82,12 @@ export default {
         'October',
         'November',
         'December'
-      ]
+      ],
     };
+  },
+
+  components: {
+    ModalComponent
   },
 
   computed: {
