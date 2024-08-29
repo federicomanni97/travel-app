@@ -1,24 +1,25 @@
 <template>
   <div class="modal">
-      <div class="modal-inner bg-dark rounded-5 m-5 opacity-75 text-light">
+      <div class="bordermodal modal-inner bg-primary rounded-5 m-5 opacity-75 text-light">
         <form>
           <h1>Travel Notes:</h1>
           <div class="form-row">
-            <div class="form-group">
+            <div class="form-group my-2">
               <label for="inputEmail4">Destination Locality:</label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Your Destination">
+              <input type="email" class="form-control" v-model="Destination" id="inputEmail4" placeholder="Your Destination">
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group my-2">
             <label for="inputAddress">Dates:</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Dates">
+            <input type="text" class="form-control" v-model="Dates" id="inputAddress" placeholder="Dates">
           </div>
-          <div class="form-group">
+          <div class="form-group my-2">
             <label for="inputAddress">Trip Details:</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Trip Details">
+            <input type="text" class="form-control" v-model="TripDetails" id="inputAddress" placeholder="Trip Details">
           </div>
         </form>
-      <button class="modal-close btn btn-primary my-2" @click="toggleModal()" >Close Modal</button>
+      <button class="modal-close btn btn-dark my-2" @click="toggleModal()" >Close Modal</button>
+      <button class="modal-close btn btn-success my-2" @click="inviaForm()">Inserisci Dati</button>
     </div>
   </div>
 </template>
@@ -30,10 +31,18 @@ export default {
   props: ['toggleModal', 'modalTriggers', ],
   data() {
     return {
-
+      Destination: '',
+      Dates: '',
+      TripDetails: '',
     }
   },
   methods: {
+    inviaForm() {
+      console.log('Destinazione:', this.Destination),
+      console.log('Data:', this.Dates),
+      console.log('Dettagli Viaggio:', this.TripDetails)
+
+    }
 
   }
 }
@@ -51,6 +60,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bordermodal{
+  border: 1px solid white;
 }
 
 .modal-inner{
