@@ -18,8 +18,8 @@
             <input type="text" class="form-control" v-model="TripDetails" id="inputAddress" placeholder="Trip Details">
           </div>
         </form>
-      <button class="modal-close btn btn-dark my-2" @click="toggleModal()" >Close Modal</button>
-      <button class="modal-close btn btn-success my-2" @click="inviaForm()">Inserisci Dati</button>
+      <button class="modal-close btn btn-dark m-2" @click="toggleModal()" >Close Modal</button>
+      <button class="modal-close btn btn-success m-2" @click="inviaForm()">Inserisci Dati</button>
     </div>
   </div>
 </template>

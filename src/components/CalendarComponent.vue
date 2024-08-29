@@ -210,6 +210,14 @@ data() {
   color: lightblue;
 }
 
+.number{
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  
+}
+
 .month{
   color: lightblue;
 }
