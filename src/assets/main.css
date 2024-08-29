@@ -3,3 +3,11 @@
 *{
     font-family: "Playfair Display", serif;
 }
+
+#app {
+    --main-primary: #8b10fe;
+    --main-white: #FFF;
+    --main-primary-link: #fb1989;
+    --box-shadow-dropdown: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+    --main-border-color: #EAEAEA;
+  }
