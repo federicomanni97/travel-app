@@ -17,6 +17,9 @@
             :key="`day-${index}`" @click="() => toggleModal('buttonTrigger')">
                 {{ day.number }}
             </li>
+            <span>Destinazione: {{ Destination }}</span>
+            <span>Data: {{ Dates }}</span>
+            <span>Dettagli Viaggio: {{ TripDetails }}</span>
         </ul>
     </div>
     <div>
@@ -34,6 +37,11 @@ import ModalComponent from './ModalComponent.vue';
 
 export default {
 name: 'CalendarComponent',
+props: ['Destination', 'Dates', 'TripDetails'],
+
+components: {
+    ModalComponent
+},
 data() {
         const modalTriggers = ref({
             buttonTrigger: false,
@@ -43,6 +51,9 @@ data() {
         modalTriggers.value[trigger] = !modalTriggers.value[trigger];
         }
       return {
+        Destination: '',
+        Dates: '',
+        TripDetails: '',
         ModalComponent,
         modalTriggers,
         toggleModal,
@@ -117,6 +128,15 @@ data() {
       }
     },
     methods: {
+      // mostraDestinazione(Destination) {
+      //   this.Destination = Destination
+      // },
+      // mostraData(Dates) {
+      //   this.Dates = Dates
+      // },
+      // mostraDettagliViaggio(TripDetails) {
+      //   this.TripDetails = TripDetails
+      // },
       updateSelectedYear(year) {
         // this.selectedYear = year
       },
@@ -215,7 +235,7 @@ data() {
   width: 50px;
   display: grid;
   place-items: center;
-  
+
 }
 
 .month{

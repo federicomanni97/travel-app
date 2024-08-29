@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
       <div class="bordermodal modal-inner bg-primary rounded-5 m-5 opacity-75 text-light">
-        <form>
+        <form  @submit.prevent="inviaDati">
           <h1>Travel Notes:</h1>
           <div class="form-row">
             <div class="form-group my-2">
@@ -19,12 +19,14 @@
           </div>
         </form>
       <button class="modal-close btn btn-dark m-2" @click="toggleModal()" >Close Modal</button>
-      <button class="modal-close btn btn-success m-2" @click="inviaForm()">Inserisci Dati</button>
+      <button type="submit" class="modal-close btn btn-success m-2" @click="inviaForm()">Inserisci Dati</button>
     </div>
   </div>
 </template>
 
 <script>
+
+import { ref } from 'vue'
 
 export default {
   name: 'ModalComponent',
@@ -42,8 +44,11 @@ export default {
       console.log('Data:', this.Dates),
       console.log('Dettagli Viaggio:', this.TripDetails)
 
-    }
+    },
 
+    inviaDati() {
+      this.$emit('invia-dati', this.Destination, this.Dates, this.TripDetails)
+    }
   }
 }
 </script>
