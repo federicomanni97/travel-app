@@ -19,7 +19,7 @@
           </div>
         </form>
       <button class="modal-close btn btn-dark m-2" @click="toggleModal()" >Close Modal</button>
-      <button type="submit" class="modal-close btn btn-success m-2" @click="inviaForm()">Inserisci Dati</button>
+      <button type="submit" class="modal-close btn btn-success m-2" @click="inviaDati()">Inserisci Dati</button>
     </div>
   </div>
 </template>
@@ -39,15 +39,16 @@ export default {
     }
   },
   methods: {
-    inviaForm() {
-      console.log('Destinazione:', this.Destination),
-      console.log('Data:', this.Dates),
-      console.log('Dettagli Viaggio:', this.TripDetails)
+    // inviaForm() {
+    //   console.log('Destinazione:', this.Destination),
+    //   console.log('Data:', this.Dates),
+    //   console.log('Dettagli Viaggio:', this.TripDetails)
 
-    },
+    // },
 
     inviaDati() {
-      this.$emit('invia-dati', this.Destination, this.Dates, this.TripDetails)
+      this.$emit('invia-dati', this.Destination, this.Dates, this.TripDetails),
+      this.toggleModal();
     }
   }
 }

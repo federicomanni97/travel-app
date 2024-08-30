@@ -24,7 +24,8 @@
     </div>
     <div>
         <ModalComponent v-if="modalTriggers.buttonTrigger"
-        :toggleModal="() => toggleModal('buttonTrigger')">
+        :toggleModal="() => toggleModal('buttonTrigger')"
+        @invia-dati="aggiornaDati">
             <h2> My ModalComponent</h2>
         </ModalComponent>
     </div>
@@ -38,7 +39,6 @@ import ModalComponent from './ModalComponent.vue';
 export default {
 name: 'CalendarComponent',
 props: ['Destination', 'Dates', 'TripDetails'],
-
 components: {
     ModalComponent
 },
@@ -128,15 +128,11 @@ data() {
       }
     },
     methods: {
-      // mostraDestinazione(Destination) {
-      //   this.Destination = Destination
-      // },
-      // mostraData(Dates) {
-      //   this.Dates = Dates
-      // },
-      // mostraDettagliViaggio(TripDetails) {
-      //   this.TripDetails = TripDetails
-      // },
+      aggiornaDati(destination, dates, tripDetails) {
+        this.Destination = destination
+        this.Dates = dates
+        this.TripDetails = tripDetails
+      },
       updateSelectedYear(year) {
         // this.selectedYear = year
       },
