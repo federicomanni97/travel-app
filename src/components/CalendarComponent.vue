@@ -13,8 +13,11 @@
          </ul>
      </div>
      <ul class="dates list-unstyled rounded-10 w-100 fs-1" id="dates" >
-         <li class="number square rounded-circle fs-2" v-for="(day, index) in getDays(selectedMonthYear.year, selectedMonthYear.month)"
-         :key="`day-${index}`" @click="() => toggleModal('buttonTrigger')">
+         <li class="number square rounded-circle fs-2"
+          v-for="(day, index) in getDays(selectedMonthYear.year, selectedMonthYear.month)"
+         :key="`day-${index}`" 
+         @click="() => toggleModal('buttonTrigger')"
+         :class="{'active-day': day.number !== null}">
              {{ day.number }}
          </li>
          <div class="fs-6">
@@ -200,7 +203,7 @@ data() {
 </script>
 <style scoped>
 
-.dates li:hover{
+.dates li.active-day:hover{
 background-color: lightblue;
 cursor: pointer;
 }
